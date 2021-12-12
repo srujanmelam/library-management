@@ -20,12 +20,15 @@ function UserHomePage({books}) {
     })
   }
 
-  useEffect(fetchData,[])
+  useEffect(fetchData,[]);
   const Search = ()=>{
-    store.dispatch({type:"search",search:search,by:attribute})
+    store.dispatch({type:"search",text:search,by:attribute})
+    console.log(books)
   }
-  const Sort = ()=>{
+  const Sort = (e)=>{
+    e.preventDefault()
     store.dispatch({type:"sort",by:sort,ord:order})
+    console.log(books)
   }
 
   return (
@@ -38,16 +41,27 @@ function UserHomePage({books}) {
         <option value="publication">publication</option>
       </select>
 	    <button type="submit" onClick={Search}>Search</button>
-      Sort
-      <select value={sort} onChange={(e)=>setSort(e.target.value)} >
-        <option value="id">id</option>
-        <option value="title">title</option>
-        <option value="author">author</option>
-        <option value="publication">publication</option>
-      </select>
-      AscOrder? <input name="isAdmin" type="checkbox" checked={order} onChange={(e)=>setOrder(!order)} />
-      <button type="submit" onClick={Sort}>Sort</button>
-      {books.map((book,i)=><Product key={i} product={book}/>)}
+      <form onSubmit={(e)=>Sort(e)}>
+        Sort
+        <select value={sort} onChange={(e)=>setSort(e.target.value)} >
+          <option value="id">id</option>
+          <option value="title">title</option>
+          <option value="author">author</option>
+          <option value="publication">publication</option>
+        </select>
+        AscOrder? <input name="isAdmin" type="checkbox" checked={order} onChange={(e)=>setOrder(!order)} />
+        <button type="submit">Sort</button>
+      </form>  
+      <table>
+        <tr>
+          <th>id</th>
+          <th>title</th>
+          <th>author</th>
+          <th>ISBN</th>
+          <th>publication</th>
+        </tr> 
+        {books.map((book,i)=><Product key={i} product={book}/>)}
+      </table> 
     </div>
   );
 }
@@ -65,5 +79,4 @@ export default connect(mapStateToProps)(UserHomePage)
     2)search input bar, dropdown(att-book,author),search button icon
     3)right corner-sort(drop down),increase n decrease (icons)
     4)book component (details of book)
-    {books.map((book,i)=><Product key={i} product={book}/>)}
 </h1> */

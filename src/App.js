@@ -5,8 +5,6 @@ import UserSignIn from './Component/UserSignIn';
 import NavBar from './Component/NavBar';
 import UserHomePage from './Component/UserHomePage';
 import AdminHomePage from './Component/AdminHomePage';
-import AddBooks from './AddBooks';
-import SearchBooks from './SearchBooks';
 
 function App() {
   return (
@@ -14,8 +12,6 @@ function App() {
       <Router>
         <NavBar/>
         <Routes>
-          <Route exact path='/SearchBooks' component={SearchBooks}/>
-          <Route exact path='/AddBooks' component={AddBooks}/>
           <Route exact path='/AdminHome' component={AdminHomePage}/>
           <Route exact path='/Home' element={< UserHomePage />}></Route>
           <Route exact path='/' element={< UserSignIn />}></Route>

@@ -5,41 +5,78 @@ const initialState = {
 function bookReducer(state = initialState, action) {
 
   let res = state.books
-  let ord = 0
   switch (action.type) {
     case "search":
-      res = state.books
-      switch (action.by) {
+      let requestData = null
+      switch (action.by){
         case "title":
-          res = res.filter(book=>book.title.toLowerCase().search(action.search))
+          requestData = res.map((book,index)=>{
+            if(book.title.toLowerCase().indexOf(action.text.toLowerCase())>=0){
+              return res[index]
+            }
+            return null
+          });
+          res = requestData.filter(b=>{
+            if (b) {return true}
+            return false;
+          });
           break
         case "author":
-          res = res.filter(book=>book.author.toLowerCase().search(action.search))
+          requestData = res.map((book,index)=>{
+            if(book.author.toLowerCase().indexOf(action.text.toLowerCase())>=0){
+              return res[index]
+            }
+            return null
+          });
+          res = requestData.filter(b=>{
+            if (b) {return true}
+            return false;
+          });
           break
         case "publication":
-          res = res.filter(book=>book.publication.toLowerCase().search(action.search))
+          requestData = res.map((book,index)=>{
+            if(book.publication.toLowerCase().indexOf(action.text.toLowerCase())>=0){
+              return res[index]
+            }
+            return null
+          });
+          res = requestData.filter(b=>{
+            if (b) {return true}
+            return false;
+          });
           break
-        default:    
+        default:   
       }
       return {
         ...state,
         books: res
       };
     case "sort":
-      res = state.books
-      ord = action.order? 1 : -1  
+      let ord = action.ord? 1 : -1  
       switch (action.by) {
         case "id":
           res.sort((a, b) => a.id > b.id ? 1*ord:-1*ord)
           break
         case "title":
-          res.sort((a, b) => a.title > b.title ? 1*ord:-1*ord)
+          res.sort((a,b)=>{
+            if(a.title.toLowerCase() > b.title.toLowerCase()){return 1*ord}
+            if(a.title.toLowerCase() < b.title.toLowerCase()){return -1*ord}
+            return 0
+          });
           break
         case "author":
-          res.sort((a, b) => a.author > b.author ? 1*ord:-1*ord)
+          res.sort((a,b)=>{
+            if(a.author.toLowerCase() > b.author.toLowerCase()){return 1*ord}
+            if(a.author.toLowerCase() < b.author.toLowerCase()){return -1*ord}
+            return 0
+          });
           break
         case "publication":
-          res.sort((a, b) => a.publication > b.publication ? 1*ord:-1*ord)
+          res.sort((a,b)=>{
+            if(a.publication.toLowerCase() > b.publication.toLowerCase()){return 1*ord}
+            if(a.publication.toLowerCase() < b.publication.toLowerCase()){return -1*ord}
+            return 0
+          });
           break
         default : 
           res.sort()   
