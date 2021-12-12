@@ -1,8 +1,7 @@
 import './App.css';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import About from '../src/Component/About';
+import Signup from '../src/Component/Signup';
 import UserSignIn from './Component/UserSignIn';
-import Contact from '../src/Component/Contact';
 import NavBar from './Component/NavBar';
 import UserHomePage from './Component/UserHomePage';
 import AdminHomePage from './Component/AdminHomePage';
@@ -20,8 +19,7 @@ function App() {
           <Route exact path='/AdminHome' component={AdminHomePage}/>
           <Route exact path='/Home' element={< UserHomePage />}></Route>
           <Route exact path='/' element={< UserSignIn />}></Route>
-          <Route exact path='/about' element={< About />}></Route>
-          <Route exact path='/contact' element={< Contact />}></Route>
+          <Route exact path='/signup' element={< Signup />}></Route>
         </Routes>  
       </Router>
     </div>

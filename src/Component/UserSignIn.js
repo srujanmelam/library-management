@@ -28,7 +28,7 @@ function UserSignIn() {
   return (
     <div>
       <input type="text" placeholder="Enter Username" onChange={(e)=>setUsername(e.target.value)} required />
-      <input type="text" placeholder="Enter Password" onChange={(e)=>setPassword(e.target.value)} required />
+      <input type="password" placeholder="Enter Password" onChange={(e)=>setPassword(e.target.value)} required />
       <button type="submit" onClick={LoginUser}>Login</button>
     </div>
   );

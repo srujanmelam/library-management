@@ -7,10 +7,7 @@ function NavBar() {
           <Link to="/">UserSignIn</Link>
         </li>
         <li>
-          <Link to="/about">About Us</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact Us</Link>
+          <Link to="/signup">Sign Up</Link>
         </li>
       </ul>
       
