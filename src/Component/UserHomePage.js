@@ -53,13 +53,15 @@ function UserHomePage({books}) {
         <button type="submit">Sort</button>
       </form>  
       <table>
-        <tr>
-          <th>id</th>
-          <th>title</th>
-          <th>author</th>
-          <th>ISBN</th>
-          <th>publication</th>
-        </tr> 
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>author</th>
+            <th>ISBN</th>
+            <th>publication</th>
+          </tr> 
+        </thead>
         {books.map((book,i)=><Product key={i} product={book}/>)}
       </table> 
     </div>
