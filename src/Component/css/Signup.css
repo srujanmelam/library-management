@@ -1,0 +1,18 @@
+.m2{
+    width:40%;
+    margin-left: 30%;
+}
+.left {
+    left: 0;
+    background-image: url("/src/Component/images/lib2.jpg");
+    background-color: #cccccc;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    position:fixed;
+    margin-top: 50px;
+    
+    
+  }
+
+  

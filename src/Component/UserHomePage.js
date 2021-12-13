@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import { connect } from 'react-redux'
 import store from "./store";
 import Product from "./Product";
-
+import './css/UserHomePage.css'
 function UserHomePage({books}) {
 
   const[search, setSearch] = useState("");
@@ -32,27 +32,39 @@ function UserHomePage({books}) {
   }
 
   return (
-    <div>
-      <input type="text" placeholder={search} onChange={(e)=>setSearch(e.target.value)}/>
-      Search from
-      <select value={attribute} onChange={(e)=>setAttribute(e.target.value)} >
+    <div className="main1"><div className="m3">
+      <table class="t"><th><input type="text" placeholder={"search anything..."+search} onChange={(e)=>setSearch(e.target.value)}/></th>
+      <th> <label for="search">Search from:</label>
+      <select id="search" value={attribute} onChange={(e)=>setAttribute(e.target.value)} >
         <option value="title">title</option>
         <option value="author">author</option>
         <option value="publication">publication</option>
-      </select>
-	    <button type="submit" onClick={Search}>Search</button>
+      </select></th><th><button type="submit" onClick={Search}>Search</button></th>
+      </table>
+      
+      
+	    
       <form onSubmit={(e)=>Sort(e)}>
-        Sort
-        <select value={sort} onChange={(e)=>setSort(e.target.value)} >
+        <table className="t">
+          <th><label for="sort"><b>Sort:</b></label>
+          
+        <select id="sort" value={sort} onChange={(e)=>setSort(e.target.value)} >
           <option value="id">id</option>
           <option value="title">title</option>
           <option value="author">author</option>
           <option value="publication">publication</option>
-        </select>
-        AscOrder? <input name="isAdmin" type="checkbox" checked={order} onChange={(e)=>setOrder(!order)} />
-        <button type="submit">Sort</button>
-      </form>  
-      <table>
+        </select></th>
+        <th><label for="Asc">&nbsp;&nbsp;&nbsp;<b>Ascending-Order ?</b></label>
+        <input name="isAdmin" id="Asc" type="checkbox" checked={order} onChange={(e)=>setOrder(!order)} />
+        </th>
+        <th> <button type="submit">Sort</button></th>
+        </table>
+        
+        
+       
+      </form>  </div><br></br>
+      <div className="table1">
+      <table id="customers">
         <thead>
           <tr>
             <th>id</th>
@@ -64,6 +76,9 @@ function UserHomePage({books}) {
         </thead>
         {books.map((book,i)=><Product key={i} product={book}/>)}
       </table> 
+
+      </div>
+      
     </div>
   );
 }

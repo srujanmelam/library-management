@@ -2,7 +2,8 @@ import axios from "axios";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import store from "./store";
-
+import './css/UserSignIn.css';
+import user from './images/user.png';
 function UserSignIn() {
   const[username1, setUsername]=useState("");
   const[password1, setPassword]=useState("");
@@ -26,11 +27,27 @@ function UserSignIn() {
   }
 
   return (
-    <div>
-      <input type="text" placeholder="Enter Username" onChange={(e)=>setUsername(e.target.value)} required />
-      <input type="password" placeholder="Enter Password" onChange={(e)=>setPassword(e.target.value)} required />
-      <button type="submit" onClick={LoginUser}>Login</button>
+    <div className="main">
+      
+      <div className="split left1">
+      
+      </div>
+
+      <div class="split right">
+        <h1><b>Online-Library-Management</b></h1>
+        <div class="centered">
+          <img src={user} alt="Avatar man"></img>
+          <h2>SignIn</h2>
+          <p><input type="text" className="t1" placeholder="Enter Username" onChange={(e)=>setUsername(e.target.value)} required />
+            <input type="password" className="t2" placeholder="Enter Password" onChange={(e)=>setPassword(e.target.value)} required />
+            <button type="submit" className="b1" onClick={LoginUser}>Login</button></p>
+            <h9>Online-Library-Management all rights reserved &copy; 2022</h9>
+        </div>
+    
+      </div>
+
     </div>
+    
   );
 }
 
