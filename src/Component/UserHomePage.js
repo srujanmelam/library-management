@@ -5,32 +5,34 @@ import store from "./store";
 import Product from "./Product";
 import "./css/UserHomePage.css";
 
-function UserHomePage({ books }) {
+function UserHomePage({books}) {
+  
   const [search, setSearch] = useState("");
   const [attribute, setAttribute] = useState("title");
-  const [sort, setSort] = useState("id");
-  const [order, setOrder] = useState(false);
+  const [sortBy, setSortBy] = useState("id");
+  const [order, setOrder] = useState("asc");
 
-  const fetchData = () => {
-    axios.get(`http://localhost:3000/books`)
-      .then((res) => {
-        store.dispatch({ type: "get", payload: res.data });
-        console.log("books data retrieved successfully");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  useEffect(()=>{
+    const fetchData = async () => {
+      await axios.get(`http://localhost:3000/books`)
+        .then((res) => {
+          store.dispatch({ type: "get", payload: res.data });
+          console.log("books data retrieved successfully");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } 
+    fetchData();
+  }, []);
 
-  useEffect(fetchData, []);
-  const Search = () => {
+  const searchData = () => {
     store.dispatch({ type: "search", text: search, by: attribute });
-    console.log(books);
+    console.log("searched")
   };
-  const Sort = (e) => {
-    e.preventDefault();
-    store.dispatch({ type: "sort", by: sort, ord: order });
-    console.log(books);
+  const sortData = () => {
+    store.dispatch({ type: "sort", order: order , sort: sortBy });
+    console.log("sorted")
   };
 
   return (
@@ -52,18 +54,17 @@ function UserHomePage({ books }) {
                 </select>
               </th>
               <th>
-                <button type="submit" onClick={Search}>Search</button>
+                <button type="submit" onClick={searchData}>Search</button>
               </th>
             </tr>
           </thead>
         </table>
-        <form onSubmit={(e) => Sort(e)}>
           <table className="t">
             <thead>
               <tr>
                 <th>
                   <label htmlFor="sort"><b>Sort : </b></label>
-                  <select id="sort" value={sort} onChange={(e) => setSort(e.target.value)}>
+                  <select id="sort" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
                     <option value="id">id</option>
                     <option value="title">title</option>
                     <option value="author">author</option>
@@ -71,17 +72,18 @@ function UserHomePage({ books }) {
                   </select>
                 </th>
                 <th>
-                  <label htmlFor="Asc">&nbsp;&nbsp;&nbsp;<b>Ascending-Order ?</b></label>
-                  <input name="isAdmin" id="Asc" type="checkbox" checked={order} onChange={(e) => setOrder(!order)}/>
+                  <label htmlFor="Asc">&nbsp;&nbsp;&nbsp;<b>Order :</b></label>
+                  <select id="order" value={order} onChange={(e) => setOrder(e.target.value)}>
+                    <option value="asc">ascending</option>
+                    <option value="desc">descending</option>
+                  </select>
                 </th>
                 <th>
-                  {" "}
-                  <button type="submit">Sort</button>
+                  <button type="submit" onClick={sortData}>Sort</button>
                 </th>
               </tr>
             </thead>
           </table>
-        </form>{" "}
       </div>
       <br></br>
       <div className="table1">
