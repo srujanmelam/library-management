@@ -16,6 +16,12 @@ function LoginReducer(state = initialState, action) {
         ...state,
         loginSuccess: false,
       };
+    case "logOut":
+      return {
+        ...state,
+        loginSuccess: false,
+        user: {}
+      };
     default:
       return state;
   }

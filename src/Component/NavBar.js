@@ -1,28 +1,24 @@
-import React from "react";
 import "./css/NavBar.css";
-import { Link } from "react-router-dom";
-function NavBar() {
-  return (
-    <ul>
-      <li>
-        <Link className="active" to="/home">Home</Link>
-      </li>
-      <li>
-        <Link to="/profile">Profile</Link>
-      </li>
-      <li>
-        <Link to="/addbook">Add a Book</Link>
-      </li>
-      <li className="sideLink">
-        <li>
-          <Link to="/">UserSignIn</Link>
-        </li>
-        <li>
-          <Link to="/signup">Sign Up</Link>
-        </li>
-      </li>
-    </ul>
-  );
+import { connect } from "react-redux";
+import AfterLogin from "./AfterLogin";
+import BeforeLogin from "./BeforeLogin";
+
+
+function NavBar({login}){
+
+  if(login){
+    return (<AfterLogin/>);
+  }
+  else{
+    return (<BeforeLogin/>)
+  }
+
 }
 
-export default NavBar;
+const mapStateToProps = (state) => {
+  return {
+    login: state.loginReducer.loginSuccess
+  };
+};
+
+export default connect(mapStateToProps)(NavBar);
