@@ -59,31 +59,31 @@ function UserHomePage({books}) {
             </tr>
           </thead>
         </table>
-          <table className="t">
-            <thead>
-              <tr>
-                <th>
-                  <label htmlFor="sort"><b>Sort : </b></label>
-                  <select id="sort" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-                    <option value="id">id</option>
-                    <option value="title">title</option>
-                    <option value="author">author</option>
-                    <option value="publication">publication</option>
-                  </select>
-                </th>
-                <th>
-                  <label htmlFor="Asc">&nbsp;&nbsp;&nbsp;<b>Order :</b></label>
-                  <select id="order" value={order} onChange={(e) => setOrder(e.target.value)}>
-                    <option value="asc">ascending</option>
-                    <option value="desc">descending</option>
-                  </select>
-                </th>
-                <th>
-                  <button type="submit" onClick={sortData}>Sort</button>
-                </th>
-              </tr>
-            </thead>
-          </table>
+        <table className="t">
+          <thead>
+            <tr>
+              <th>
+                <label htmlFor="sort"><b>Sort : </b></label>
+                <select id="sort" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+                  <option value="id">id</option>
+                  <option value="title">title</option>
+                  <option value="author">author</option>
+                  <option value="publication">publication</option>
+                </select>
+              </th>
+              <th>
+                <label htmlFor="Asc">&nbsp;&nbsp;&nbsp;<b>Order :</b></label>
+                <select id="order" value={order} onChange={(e) => setOrder(e.target.value)}>
+                  <option value="asc">ascending</option>
+                  <option value="desc">descending</option>
+                </select>
+              </th>
+              <th>
+                <button type="submit" onClick={sortData}>Sort</button>
+              </th>
+            </tr>
+          </thead>
+        </table>
       </div>
       <br></br>
       <div className="table1">
