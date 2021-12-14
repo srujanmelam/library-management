@@ -37,58 +37,55 @@ function UserHomePage({ books }) {
     <div className="main1">
       <div className="m3">
         <table className="t">
-          <th>
-            <input type="text" placeholder={"search anything..." + search} onChange={(e) => setSearch(e.target.value)}/>
-          </th>
-          <th>
-            {" "}
-            <label for="search">Search from : </label>
-            <select id="search" value={attribute} onChange={(e) => setAttribute(e.target.value)}>
-              <option value="title">title</option>
-              <option value="author">author</option>
-              <option value="publication">publication</option>
-            </select>
-          </th>
-          <th>
-            <button type="submit" onClick={Search}>Search</button>
-          </th>
+          <thead>
+            <tr>
+              <th>
+                <input type="text" placeholder={"search anything..." + search} onChange={(e) => setSearch(e.target.value)}/>
+              </th>
+              <th>
+                {" "}
+                <label htmlFor="search">Search from : </label>
+                <select id="search" value={attribute} onChange={(e) => setAttribute(e.target.value)}>
+                  <option value="title">title</option>
+                  <option value="author">author</option>
+                  <option value="publication">publication</option>
+                </select>
+              </th>
+              <th>
+                <button type="submit" onClick={Search}>Search</button>
+              </th>
+            </tr>
+          </thead>
         </table>
         <form onSubmit={(e) => Sort(e)}>
           <table className="t">
-            <th>
-              <label for="sort"><b>Sort : </b></label>
-              <select id="sort" value={sort} onChange={(e) => setSort(e.target.value)}>
-                <option value="id">id</option>
-                <option value="title">title</option>
-                <option value="author">author</option>
-                <option value="publication">publication</option>
-              </select>
-            </th>
-            <th>
-              <label for="Asc">&nbsp;&nbsp;&nbsp;<b>Ascending-Order ?</b></label>
-              <input name="isAdmin" id="Asc" type="checkbox" checked={order} onChange={(e) => setOrder(!order)}/>
-            </th>
-            <th>
-              {" "}
-              <button type="submit">Sort</button>
-            </th>
+            <thead>
+              <tr>
+                <th>
+                  <label htmlFor="sort"><b>Sort : </b></label>
+                  <select id="sort" value={sort} onChange={(e) => setSort(e.target.value)}>
+                    <option value="id">id</option>
+                    <option value="title">title</option>
+                    <option value="author">author</option>
+                    <option value="publication">publication</option>
+                  </select>
+                </th>
+                <th>
+                  <label htmlFor="Asc">&nbsp;&nbsp;&nbsp;<b>Ascending-Order ?</b></label>
+                  <input name="isAdmin" id="Asc" type="checkbox" checked={order} onChange={(e) => setOrder(!order)}/>
+                </th>
+                <th>
+                  {" "}
+                  <button type="submit">Sort</button>
+                </th>
+              </tr>
+            </thead>
           </table>
         </form>{" "}
       </div>
       <br></br>
       <div className="table1">
-        <table id="customers">
-          <thead>
-            <tr>
-              <th>id</th>
-              <th>title</th>
-              <th>author</th>
-              <th>ISBN</th>
-              <th>publication</th>
-            </tr>
-          </thead>
-          {books.map((book, i)=>(<Product key={i} product={book}/>))}
-        </table>
+        <Product books={books}/>
       </div>
     </div>
   );
