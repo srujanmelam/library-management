@@ -13,11 +13,11 @@ function App() {
       <Router>
         <NavBar/>
         <Routes>
-          <Route exact path='/AdminHome' component={AdminHomePage}/>
           <Route exact path='/Home' element={< UserHomePage />}></Route>
           <Route exact path='/' element={< UserSignIn />}></Route>
           <Route exact path='/profile' element={< UserProfile />}></Route>
           <Route exact path='/signup' element={< Signup />}></Route>
+          <Route exact path='/addbook' element={< AdminHomePage />}></Route>
         </Routes>  
       </Router>
     </div>

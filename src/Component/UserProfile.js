@@ -1,10 +1,13 @@
 import { connect } from 'react-redux'
 
 function UserProfile({profile}){
+
+    const User = profile.username
+    const Admin = profile.isAdmin ? "Admin" : "Student"
     return(
         <div>
-          {profile.username}
-          {profile.isAdmin} 
+          <h3>{User}</h3>
+          <h4>{Admin}</h4>
         </div>
       );
 
