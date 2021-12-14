@@ -1,12 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import store from "./store";
 import Product from "./Product";
 import "./css/UserHomePage.css";
 
-function UserHomePage({books}) {
-  
+function UserHomePage() {
+
+  const [books,setBooks] = useState([])
   const [search, setSearch] = useState("");
   const [attribute, setAttribute] = useState("title");
   const [sortBy, setSortBy] = useState("id");
@@ -16,7 +15,7 @@ function UserHomePage({books}) {
     const fetchData = async () => {
       await axios.get(`http://localhost:3000/books`)
         .then((res) => {
-          store.dispatch({ type: "get", payload: res.data });
+          setBooks(res.data)
           console.log("books data retrieved successfully");
         })
         .catch((err) => {
@@ -26,13 +25,15 @@ function UserHomePage({books}) {
     fetchData();
   }, []);
 
-  const searchData = () => {
-    store.dispatch({ type: "search", text: search, by: attribute });
-    console.log("searched")
-  };
-  const sortData = () => {
-    store.dispatch({ type: "sort", order: order , sort: sortBy });
-    console.log("sorted")
+  const searchData = async () => {
+      await axios.get(`http://localhost:3000/books?${attribute}_like=${search}`)
+        .then((res) => {
+          setBooks(res.data)
+          console.log("search");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
   };
 
   return (
@@ -45,7 +46,6 @@ function UserHomePage({books}) {
                 <input type="text" placeholder={"search anything..." + search} onChange={(e) => setSearch(e.target.value)}/>
               </th>
               <th>
-                {" "}
                 <label htmlFor="search">Search from : </label>
                 <select id="search" value={attribute} onChange={(e) => setAttribute(e.target.value)}>
                   <option value="title">title</option>
@@ -78,28 +78,19 @@ function UserHomePage({books}) {
                   <option value="desc">descending</option>
                 </select>
               </th>
-              <th>
-                <button type="submit" onClick={sortData}>Sort</button>
-              </th>
             </tr>
           </thead>
         </table>
       </div>
       <br></br>
       <div className="table1">
-        <Product books={books}/>
+        <Product books={books}  ord={order} sort={sortBy}/>
       </div>
     </div>
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    books: state.bookReducer.books,
-  };
-};
-
-export default connect(mapStateToProps)(UserHomePage);
+export default UserHomePage;
 
 /*<h1>UserHomePage(Contains buttons of borrow books , search books, user profile, log out
     1)navbar(home,stats,profile)

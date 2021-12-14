@@ -3,6 +3,10 @@ function Product(props)
 {
   const books = props.books
 
+  let ord = 0
+  if(props.ord === 'asc'){ord = 1}
+  if(props.ord === 'desc'){ord = -1}
+
   return(
       <table>
         <thead>
@@ -15,7 +19,10 @@ function Product(props)
           </tr>
         </thead>
         <tbody>
-          {books.map((book,i)=>(
+          {books.sort((a,b)=>{
+        if(a[props.sort] > b[props.sort]){return 1*ord}
+        if(a[props.sort] < b[props.sort]){return -1*ord}
+        return 0 }).map((book,i)=>(
             <tr key={i}>
               <td>{book.id}</td>
               <td>{book.title}</td>
