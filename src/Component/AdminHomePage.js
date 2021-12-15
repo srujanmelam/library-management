@@ -1,7 +1,7 @@
 import axios from "axios";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
-
+import './css/AdminHomePage.css';
 function AdminHomePage() {
 
   const[title,setTitle] = useState("")
@@ -26,21 +26,30 @@ function AdminHomePage() {
   }
 
   return (
-    <div>
-      <h1>Add a Book</h1>
-      <label for="title">Title:</label>
-      <input type="text" onChange={(e)=>setTitle(e.target.value)} required="required" pattern="[A-Za-z0-9]+"/>
+    <div className="body">
+      <div  className="main3">
+      
+        <div className="sub">
+        <h1>Add a Book</h1>
+      
+      <input type="text"  placeholder="Title" onChange={(e)=>setTitle(e.target.value)} required="required" pattern="[A-Za-z0-9]+"/>
       <br/><br/>
-      <label for="author">Author:</label>
-      <input type="text" onChange={(e)=>setAuthor(e.target.value)} required="required" pattern="[A-Za-z0-9]+"/>
+      
+      <input type="text" placeholder="Author" onChange={(e)=>setAuthor(e.target.value)} required="required" pattern="[A-Za-z0-9]+"/>
       <br/><br/>
-      <label for="isbn">ISBN:</label>
-      <input type="text" onChange={(e)=>setISBN(e.target.value)} required="required" pattern="[0-9]{3}-[0-9]-[0-9]{2}-[0-9]{6}-[0-9]" />
+      
+      <input type="text"  placeholder="ISBN" onChange={(e)=>setISBN(e.target.value)} required="required" pattern="[0-9]{3}-[0-9]-[0-9]{2}-[0-9]{6}-[0-9]" />
       <br/><br/>
-      <label for="publication">Publication</label>
-      <input type="text" onChange={(e)=>setPublication(e.target.value)} required="required" pattern="[0-9]{4}"/>
+      
+      <input type="text"  placeholder="Publication" onChange={(e)=>setPublication(e.target.value)} required="required" pattern="[0-9]{4}"/>
       <br/><br/>
-      <button type="submit" onClick={addBook}>Submit</button>
+      <button type="submit" onClick={addBook}>Submit</button><br></br><br></br><h1></h1>
+
+        </div>
+     
+
+      </div>
+     
     </div>
   );
 }

@@ -23,6 +23,12 @@
       "password": "fsd123",
       "isAdmin": false,
       "id": 4
+    },
+    {
+      "username": "srujan",
+      "password": "fsd123",
+      "isAdmin": false,
+      "id": 5
     }
   ],
   "books": [

@@ -83,7 +83,7 @@ function UserHomePage() {
         </table>
       </div>
       <br></br>
-      <div className="table1">
+      <div className="t">
         <Product books={books}  ord={order} sort={sortBy}/>
       </div>
     </div>
