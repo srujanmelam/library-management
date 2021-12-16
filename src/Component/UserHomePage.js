@@ -84,11 +84,11 @@ function UserHomePage() {
             </tr>
             <tr className="m">
               <th>Online Books</th>
-            <th className="move"> <button><Link className="tag" to="/cart">Go to cart</Link></button></th>
+              <th className="move"> <button><Link className="tag" to="/cart">Go to cart</Link></button></th>
+              <th className="move"><Cart/></th>
             </tr>
             <tr className="m">
               <th>ADD IT! READ IT!</th>
-              <th className="move"><Cart/></th>
             </tr>
           </thead>
         </table>

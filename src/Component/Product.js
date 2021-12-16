@@ -18,11 +18,11 @@ function Product(props)
       <table className='t' id="customers">
         <thead>
           <tr>
-            <th>id</th>
-            <th>title</th>
-            <th>author</th>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Author</th>
             <th>ISBN</th>
-            <th>publication</th>
+            <th>Publication</th>
           </tr>
         </thead>
         <tbody>
