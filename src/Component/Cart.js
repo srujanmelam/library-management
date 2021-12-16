@@ -13,7 +13,7 @@ const Cart = ({ cart }) => {
     setCartCount(count);
   }, [cart, cartCount]);
 
-  return <div>Your cart = [{cartCount}]</div>;
+  return <div className="car">Your cart = [{cartCount}]</div>;
 };
 
 const mapStateToProps = (state) => {

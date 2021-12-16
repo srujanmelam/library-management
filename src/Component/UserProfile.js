@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import './css/UserProfile.css';
-
+import user from './images/user.png';
 function UserProfile({profile}){
 
     const User = profile.username
@@ -8,6 +8,7 @@ function UserProfile({profile}){
     return(
         <div className='m4'>
           <br></br>
+          <img src={user}></img>
         <div className='main4'><h3>Name: {User}</h3>
           <h3>Category: {Admin}</h3><br></br></div>
           

@@ -1,6 +1,11 @@
-.main1{
+.card{
     background-color: black;
-    color:white
+    color:white;
+}
+.car{
+    background-color: black;
+    color:white;
+    float:right;
 }
 .t{
     width:100%;
@@ -28,16 +33,3 @@
     background-color: #04AA6D;
     color: white;
   }
-
-  
-    .tag, .tag:hover, .tag:focus, .tag:active {
-      text-decoration: none;
-      color: inherit;
- }
- .move{
-   float:right;
- }
- .m {
-   margin-left: 500px;
-
- }
