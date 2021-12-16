@@ -6,9 +6,13 @@
     background-color: black;
     color:white;
     float:right;
+    font-style: italic;
+    font-size: 40px;
+    color:lightblue;
 }
-.t{
-    width:100%;
+.t1{
+  margin-left: 40px;
+    width:80%;
 }
 
 #customers {
@@ -33,3 +37,17 @@
     background-color: #04AA6D;
     color: white;
   }
+.btn{
+  margin-left: 80px;
+  width:150px;
+  
+  
+}
+.btn1{
+  width:150px;
+
+}
+.n{
+  color:white;
+  font-size: 20px;
+}

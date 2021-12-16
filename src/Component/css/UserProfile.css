@@ -9,14 +9,12 @@ h3,h4{
     color:white;
     
 }
-.imgcontainer {
-    
-    text-align: center;
-    margin: 24px 0 12px 0;
-}
+
 /*set image properties*/
   
-img.avatar {
-    width: 40%;
+
+.ip{
+    width: 200px;
     border-radius: 50%;
+
 }

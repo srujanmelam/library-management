@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./css/AdminHomePage.css";
+import book from './images/book.png';
 function AdminHomePage() {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
@@ -29,8 +30,11 @@ function AdminHomePage() {
 
   return (
     <div className="body">
-      <div className="main3">
-        <div className="sub">
+     
+      <div className="main3"><br></br>
+     
+        <div className="sub"> <img className="ip1" src={book}></img>
+
           <h1>Add a Book</h1>
 
           <input

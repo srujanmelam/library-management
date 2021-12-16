@@ -2,7 +2,7 @@ import { actionTypes } from "./reducers/CartReducer";
 import store from "./store";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import cart from './css/CartProduct.css';
+import './css/CartProduct.css';
 const CartProduct = ({ item }) => {
 
   const location = useLocation();
@@ -34,7 +34,7 @@ const CartProduct = ({ item }) => {
   return (
     <div className="card"><br></br><br></br>
       <div className="card-body">
-        <table className="t">
+        <table className="t1">
           <tr>
             <th> <label>Title :{item.title}</label> </th>
             <th> <label>Author :{item.author}</label> </th>
@@ -48,13 +48,14 @@ const CartProduct = ({ item }) => {
           <span>
             <table className="t">
               <tr>
+              <th><input type="number" value={qty} min='0' onChange={(e) => setQty(e.target.value)}/></th>
               <th> <button className="btn" onClick={changeQuantity}>
-              Change
+              <b>Change</b>
+            </button>
+                 <button className="btn1" onClick={deleteFromCart}>
+              <b>Delete from Cart</b>
             </button></th>
-                <th> <button className="btn" onClick={deleteFromCart}>
-              Delete from Cart
-            </button></th>
-                <th><input type="number" value={qty} min='0' onChange={(e) => setQty(e.target.value)}/></th>
+                
                
               </tr>
             </table>
