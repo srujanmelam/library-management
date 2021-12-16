@@ -7,6 +7,7 @@ function Product(props)
 
   const addToCart= (item)=>{
     store.dispatch({type:'ADD_TO_CART',payload:{item:item}})
+    console.log("added an item to cart")
   }
 
   let ord = 0

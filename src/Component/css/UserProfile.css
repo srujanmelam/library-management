@@ -1,20 +1,14 @@
-.m4{
-    
-    background-color: black;
-    
-   
-
+.m4 {
+  background-color: black;
 }
-h3,h4{
-    color:white;
-    
+h3,
+h4 {
+  color: white;
 }
 
 /*set image properties*/
-  
 
-.ip{
-    width: 200px;
-    border-radius: 50%;
-
+.ip {
+  width: 200px;
+  border-radius: 50%;
 }

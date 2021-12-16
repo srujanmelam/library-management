@@ -28,26 +28,20 @@ function UserSignIn() {
 
   return (
     <div className="main">
-      
       <div className="split left1">
-      
       </div>
-
-      <div class="split right">
+      <div className="split right">
         <h1><b>Online-Library-Management</b></h1>
-        <div class="centered">
+        <div className="centered">
           <img src={user} alt="Avatar man"></img>
           <h2>SignIn</h2>
           <p><input type="text" className="t1" placeholder="Enter Username" onChange={(e)=>setUsername(e.target.value)} required />
             <input type="password" className="t2" placeholder="Enter Password" onChange={(e)=>setPassword(e.target.value)} required />
             <button type="submit" className="b1" onClick={LoginUser}>Login</button></p>
-            <h9>Online-Library-Management all rights reserved &copy; 2022</h9>
+            <h6>Online-Library-Management all rights reserved &copy; 2022</h6>
         </div>
-    
       </div>
-
-    </div>
-    
+    </div>    
   );
 }
 

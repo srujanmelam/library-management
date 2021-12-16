@@ -2,7 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./css/AdminHomePage.css";
-import book from './images/book.png';
+import book from "./images/book.png";
+
 function AdminHomePage() {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
@@ -30,13 +31,13 @@ function AdminHomePage() {
 
   return (
     <div className="body">
-     
-      <div className="main3"><br></br>
-     
-        <div className="sub"> <img className="ip1" src={book}></img>
+      <div className="main3">
+        <br></br>
 
+        <div className="sub">
+          {" "}
+          <img alt="book icon" className="ip1" src={book}></img>
           <h1>Add a Book</h1>
-
           <input
             type="text"
             placeholder="Title"
@@ -46,7 +47,6 @@ function AdminHomePage() {
           />
           <br />
           <br />
-
           <input
             type="text"
             placeholder="Author"
@@ -56,7 +56,6 @@ function AdminHomePage() {
           />
           <br />
           <br />
-
           <input
             type="text"
             placeholder="ISBN"
@@ -66,7 +65,6 @@ function AdminHomePage() {
           />
           <br />
           <br />
-
           <input
             type="text"
             placeholder="Publication"
