@@ -1,7 +1,13 @@
+import store from "./store";
 import './css/UserHomePage.css';
+
 function Product(props)
 {
   const books = props.books
+
+  const addToCart= (item)=>{
+    store.dispatch({type:'ADD_TO_CART',payload:{item:item}})
+  }
 
   let ord = 0
   if(props.ord === 'asc'){ord = 1}
@@ -29,6 +35,7 @@ function Product(props)
               <td>{book.author}</td>
               <td>{book.ISBN}</td>
               <td>{book.publication}</td>
+              <td><button onClick={()=>addToCart(book)}>add to cart</button></td>
             </tr>
           ))}
         </tbody>

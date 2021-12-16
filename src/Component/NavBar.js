@@ -6,8 +6,8 @@ import BeforeLogin from "./BeforeLogin";
 
 function NavBar({login}){
 
-  if(login){
-    return (<AfterLogin/>);
+  if(login.loginSuccess){
+    return (<AfterLogin user={login.user}/>);
   }
   else{
     return (<BeforeLogin/>)
@@ -17,7 +17,7 @@ function NavBar({login}){
 
 const mapStateToProps = (state) => {
   return {
-    login: state.loginReducer.loginSuccess
+    login: state.loginReducer
   };
 };
 

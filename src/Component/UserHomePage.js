@@ -1,7 +1,10 @@
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Cart from "./Cart"
 import Product from "./Product";
 import "./css/UserHomePage.css";
+
 
 function UserHomePage() {
 
@@ -82,6 +85,8 @@ function UserHomePage() {
           </thead>
         </table>
       </div>
+      <Cart/>
+      <Link to="/cart">Go to cart</Link>
       <br></br>
       <div className="t">
         <Product books={books}  ord={order} sort={sortBy}/>

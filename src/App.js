@@ -6,6 +6,7 @@ import NavBar from './Component/NavBar';
 import UserHomePage from './Component/UserHomePage';
 import AdminHomePage from './Component/AdminHomePage';
 import UserProfile from './Component/UserProfile';
+import ShowCart from './Component/ShowCart';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path='/profile' element={< UserProfile />}></Route>
           <Route exact path='/signup' element={< Signup />}></Route>
           <Route exact path='/addbook' element={< AdminHomePage />}></Route>
+          <Route exact path='/cart' element={< ShowCart />}></Route>
         </Routes>  
       </Router>
     </div>
