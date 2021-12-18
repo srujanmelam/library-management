@@ -66,7 +66,7 @@ const CartProduct = ({ item }) => {
                   <input
                     type="number"
                     value={qty}
-                    min="0"
+                    min="1"
                     onChange={(e) => setQty(e.target.value)}
                   />
                 </th>
