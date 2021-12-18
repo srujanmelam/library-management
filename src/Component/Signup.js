@@ -39,9 +39,9 @@ function UserSignIn() {
     <div className="main">
       <div className="split left"></div>
      
-      <div class="split right">
+      <div className="split right">
       <h1><b>Online-Library-Management</b></h1>
-      <div class="centered">
+      <div className="centered">
       <img src={user2} alt="Avatar man"></img>
       <h2>SignUp</h2>
       <p><input type="text" placeholder="Enter Username" onChange={(e)=>setUsername(e.target.value)} required />
@@ -50,7 +50,7 @@ function UserSignIn() {
 		    Admin <input name="isAdmin" type="checkbox" checked={isAdmin1} onChange={(e)=>setisAdmin(!isAdmin1)} />
 	    </label>
 	    <button type="submit" onClick={SignupUser}>Sign Up</button></p>
-      <h9>Online-Library-Management all rights reserved &copy; 2022</h9>
+      <h6>Online-Library-Management all rights reserved &copy; 2022</h6>
       </div>
      
       </div>
