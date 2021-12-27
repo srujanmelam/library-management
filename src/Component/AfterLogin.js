@@ -1,31 +1,46 @@
 import store from "./store";
 import { Link } from "react-router-dom";
 
-function AfterLogin({user}) {
+function AfterLogin({ user }) {
+  const logOut = () => {
+    store.dispatch({ type: "logOut" });
+    console.log("Successfully logged out");
+  };
 
-  const logOut = ()=>{
-    store.dispatch({ type: "logOut",});
-    console.log("Successfully logged out")
-  }
-
-  const admin = user.isAdmin? <li><Link to="/addbook">Add a Book</Link></li> : <></>
+  const admin = user.isAdmin ? (
+    <li>
+      <Link to="/addbook">Add a Book</Link>
+    </li>
+  ) : (
+    <></>
+  );
+  const stud = user.isAdmin ? (
+    <></>
+  ) : (
+    <li>
+      <Link to="/orders">Your Orders</Link>
+    </li>
+  );
 
   return (
     <ul>
       <li>
-        <Link className="active" to="/home">Home</Link>
+        <Link className="active" to="/home">
+          Home
+        </Link>
       </li>
       {admin}
+      {stud}
       <li className="sideLink">
-        <li>
-          <Link to="/profile">Profile</Link>
-        </li>
-        <li>
-          <Link to="/" onClick={logOut}>Logout</Link>
-        </li>
+        <Link to="/profile">Profile</Link>
+      </li>
+      <li className="sideLink">
+        <Link to="/" onClick={logOut}>
+          Logout
+        </Link>
       </li>
     </ul>
   );
 }
 
-export default AfterLogin
+export default AfterLogin;

@@ -2,8 +2,8 @@ import { connect } from "react-redux";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-const Cart = ({ cart }) => {
 
+const Cart = ({ cart }) => {
   const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {

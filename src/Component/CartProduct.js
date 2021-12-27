@@ -3,6 +3,7 @@ import store from "./store";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./css/CartProduct.css";
+
 const CartProduct = ({ item }) => {
   const location = useLocation();
   const [qty, setQty] = useState(item.count);
@@ -34,8 +35,8 @@ const CartProduct = ({ item }) => {
 
   return (
     <div className="card">
-      <br></br>
-      <br></br>
+      <br/>
+      <br/>
       <div className="card-body">
         <table className="t1">
           <tr>
@@ -56,8 +57,7 @@ const CartProduct = ({ item }) => {
             </th>
           </tr>
         </table>
-        <br />
-
+        <br/>
         {location.pathname === "/cart" && (
           <span>
             <table className="t">
@@ -71,7 +71,6 @@ const CartProduct = ({ item }) => {
                   />
                 </th>
                 <th>
-                  {" "}
                   <button className="btn" onClick={changeQuantity}>
                     <b>Change</b>
                   </button>

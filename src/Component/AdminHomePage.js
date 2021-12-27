@@ -33,9 +33,7 @@ function AdminHomePage() {
     <div className="body">
       <div className="main3">
         <br></br>
-
         <div className="sub">
-          {" "}
           <img alt="book icon" className="ip1" src={book}></img>
           <h1>Add a Book</h1>
           <input

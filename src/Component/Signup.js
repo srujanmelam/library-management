@@ -3,6 +3,7 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import './css/Signup.css';
 import user2 from './images/user2.png';
+
 function UserSignIn() {
   const[username1, setUsername]=useState("");
   const[password1, setPassword]=useState("");
@@ -38,7 +39,6 @@ function UserSignIn() {
   return (
     <div className="main">
       <div className="split left"></div>
-     
       <div className="split right">
       <h1><b>Online-Library-Management</b></h1>
       <div className="centered">
@@ -52,9 +52,7 @@ function UserSignIn() {
 	    <button type="submit" onClick={SignupUser}>Sign Up</button></p>
       <h6>Online-Library-Management all rights reserved &copy; 2022</h6>
       </div>
-     
       </div>
-     
     </div>
   );
 }

@@ -14,7 +14,7 @@ function UserSignIn() {
       if (res.data.length!==0){
         console.log("Login Success")
         store.dispatch({type:"loginSuccess",payload:res.data[0]});   
-        history("/Home");
+        history("/home");
       }  
       else{
         store.dispatch({type:"loginFail"});
